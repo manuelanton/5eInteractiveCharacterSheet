@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StatCard, H5 } from "../components/styles/StatCard";
 import { createStatChange, addSave, removeSave } from "../actions/stats";

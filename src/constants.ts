@@ -9,3 +9,6 @@ export const CHANGE_AC = "CHANGE_AC";
 export const CHANGE_RACE = "CHANGE_RACE";
 export const ADD_ATTACK = "ADD_ATTACK";
 export const REMOVE_ATTACK = "REMOVE_ATTACK";
+export const PERSIST_STORE = "PERSIST_STORE";
+export const CHANGE_HP_MAX = "CHANGE_HP_MAX";
+export const CHANGE_HP_CURRENT = "CHANGE_HP_CURRENT";

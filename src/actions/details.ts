@@ -4,6 +4,8 @@ import {
   CHANGE_CLASS,
   CHANGE_LEVEL,
   CHANGE_AC,
+  CHANGE_HP_MAX,
+  CHANGE_HP_CURRENT,
   CHANGE_RACE
 } from "../constants";
 
@@ -30,4 +32,12 @@ export const changeLevel = (level: number) => ({
 export const changeAC = (ac: number) => ({
   type: CHANGE_AC,
   payload: ac
+});
+export const changeHPMax = (newMax: number) => ({
+  type: CHANGE_HP_MAX,
+  payload: newMax
+});
+export const changeHPCurrent = (newCurrent: number) => ({
+  type: CHANGE_HP_CURRENT,
+  payload: newCurrent
 });

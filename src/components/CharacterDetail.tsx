@@ -6,13 +6,16 @@ import {
   changeClass,
   changeLevel,
   changeAC,
-  changeRace
+  changeRace,
+  changeHPMax,
+  changeHPCurrent
 } from "../actions/details";
 import { classes } from "../reducers/index";
 import { enumIntoArray } from "../utils";
 
 const CharacterDetail = () => {
   const stats: any = useSelector<any>(state => state.stats);
+  const hp: any = useSelector<any>(state => state.HP);
   const name: any = useSelector<any>(state => state.name);
   const background: any = useSelector<any>(state => state.background);
   const race: any = useSelector<any>(state => state.race);
@@ -51,7 +54,6 @@ const CharacterDetail = () => {
   return (
     <div style={{ margin: "1em" }}>
       <h2>Character Details</h2>
-      <br />
       Name: &nbsp;
       <input
         type="text"
@@ -73,7 +75,7 @@ const CharacterDetail = () => {
       <br />
       Class: &nbsp;
       <select
-        defaultValue={characterClass}
+        value={characterClass}
         onChange={e => dispatch(changeClass(e.target.value))}
       >
         <option value={""} disabled>
@@ -89,9 +91,23 @@ const CharacterDetail = () => {
       <input
         type="number"
         value={level}
-        onChange={e => dispatch(changeLevel(e.currentTarget.valueAsNumber))}
+        onChange={e => {
+          dispatch(changeLevel(e.currentTarget.valueAsNumber));
+        }}
       />
       &nbsp; Prof. Bonus: {profBonus}
+      &nbsp; HP(max):{" "}
+      <input
+        type="number"
+        value={hp.max}
+        onChange={e => dispatch(changeHPMax(e.currentTarget.valueAsNumber))}
+      />
+      HP(current):
+      <input
+        type="number"
+        value={hp.current}
+        onChange={e => dispatch(changeHPCurrent(e.currentTarget.valueAsNumber))}
+      />
       <br />
       AC: &nbsp;
       <input

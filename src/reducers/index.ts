@@ -9,7 +9,10 @@ import {
   REMOVE_SAVE,
   CHANGE_BACKGROUND,
   CHANGE_AC,
-  CHANGE_RACE
+  CHANGE_RACE,
+  PERSIST_STORE,
+  CHANGE_HP_MAX,
+  CHANGE_HP_CURRENT
 } from "../constants";
 
 export enum classes {
@@ -60,6 +63,10 @@ export interface RootState {
   level: number;
   profBonus: number;
   AC: number;
+  HP: {
+    max: number;
+    current: number;
+  };
   saves: string[];
   attacks: [
     {
@@ -90,6 +97,10 @@ export const initialState: RootState = {
   level: 1,
   profBonus: 2,
   AC: 10,
+  HP: {
+    max: 1,
+    current: 1
+  },
   saves: [],
   attacks: [
     {
@@ -180,6 +191,12 @@ export function rootReducer(
     case CHANGE_BACKGROUND: {
       return { ...state, background: action.payload };
     }
+    case CHANGE_HP_MAX: {
+      return { ...state, HP: { ...state.HP, max: action.payload } };
+    }
+    case CHANGE_HP_CURRENT: {
+      return { ...state, HP: { ...state.HP, current: action.payload } };
+    }
     case ADD_ATTACK: {
       return { ...state, attacks: [...state.attacks, action.payload] };
     }
@@ -188,6 +205,10 @@ export function rootReducer(
         ...state,
         attacks: state.attacks.filter(attack => attack.name !== action.payload)
       };
+    }
+    case PERSIST_STORE: {
+      console.log(action.payload);
+      return { ...action.payload };
     }
     default:
       return state;
