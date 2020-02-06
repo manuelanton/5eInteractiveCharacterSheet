@@ -1,0 +1,11 @@
+export const CHANGE_MOD = "CHANGE_MOD";
+export const CHANGE_NAME = "CHANGE_NAME";
+export const CHANGE_LEVEL = "CHANGE_LEVEL";
+export const CHANGE_CLASS = "CHANGE_CLASS";
+export const ADD_SAVE = "ADD_SAVE";
+export const REMOVE_SAVE = "REMOVE_SAVE";
+export const CHANGE_BACKGROUND = "CHANGE_BACKGROUND";
+export const CHANGE_AC = "CHANGE_AC";
+export const CHANGE_RACE = "CHANGE_RACE";
+export const ADD_ATTACK = "ADD_ATTACK";
+export const REMOVE_ATTACK = "REMOVE_ATTACK";
