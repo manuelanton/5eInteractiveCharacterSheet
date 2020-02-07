@@ -34,7 +34,7 @@ const RollOne = () => {
   };
 
   return (
-    <div style={{ marginLeft: "1em" }}>
+    <>
       <h4>Misc. Rolls</h4>
       How many sides do your dice have? &nbsp;
       <select
@@ -84,15 +84,10 @@ const RollOne = () => {
       <button onClick={() => setResult(advantageHandler(sides, amount, bonus))}>
         Let's roll!
       </button>
-      <br />
-      <br />
-      {result.total > 0 && `Here's your result: ${result.total}!`}
-      <br />
-      {result.critical && "Critical hit!"}
-      <br />
-      {result.rolls.length > 1 &&
-        `Here are your individual rolls: ${result.rolls}`}
-    </div>
+      &nbsp; {result.total > 0 && `${result.total}! `}
+      {result.critical && "Critical hit! "}
+      {result.rolls.length > 1 && `Individual rolls: ${result.rolls}`}
+    </>
   );
 };
 

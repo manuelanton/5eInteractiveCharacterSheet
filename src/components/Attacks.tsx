@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { diceRoller } from "../utils";
 import { removeAttack } from "../actions/attacks";
 import NewAttack from "./NewAttack";
+import RollOne from "./RollOne";
 
 const Attacks = () => {
   const stats: any = useSelector<any>(state => state.stats);
@@ -36,58 +37,68 @@ const Attacks = () => {
   const crit: any = critCalculator();
 
   return (
-    <div style={{ margin: "1em", marginBottom: "0em" }}>
+    <div style={{ marginLeft: "1em" }}>
       <h4>Attacks</h4>
-      {attacks.map((attack: { name: any; damage: any; stat: string }) => (
-        <span key={attack.name} style={{ padding: "3px" }}>
-          {attack.name} ({attack.stat}) ~ Damage: {attack.damage.diceAmount}D
-          {attack.damage.diceSides} &nbsp;
-          {attack.damage.damageType !== 7
-            ? attack.damage.damageType
-            : "Piercing"}
-          &nbsp;
-          <button
-            onClick={() =>
-              setResult(
-                diceRoller(
-                  20,
-                  1,
-                  Math.floor((stats[attack.stat] - 10) / 2) + profBonus
+      <div
+        style={{
+          maxHeight: "5em",
+          overflowY: "scroll"
+        }}
+      >
+        {attacks.map((attack: { name: any; damage: any; stat: string }) => (
+          <div key={attack.name} style={{ padding: "3px" }}>
+            {attack.name} ({attack.stat}) ~ Damage: {attack.damage.diceAmount}D
+            {attack.damage.diceSides} &nbsp;
+            {attack.damage.damageType !== 7
+              ? attack.damage.damageType
+              : "Piercing"}
+            &nbsp;
+            <button
+              onClick={() =>
+                setResult(
+                  diceRoller(
+                    20,
+                    1,
+                    Math.floor((stats[attack.stat] - 10) / 2) + profBonus
+                  )
                 )
-              )
-            }
-          >
-            roll attack
-          </button>
-          &nbsp;
-          <button
-            onClick={() =>
-              setResult(
-                diceRoller(
-                  attack.damage.diceSides,
-                  result.critical
-                    ? attack.damage.diceAmount * 2 + crit
-                    : attack.damage.diceAmount,
-                  Math.floor((stats[attack.stat] - 10) / 2)
+              }
+            >
+              attack
+            </button>
+            &nbsp;
+            <button
+              onClick={() =>
+                setResult(
+                  diceRoller(
+                    attack.damage.diceSides,
+                    result.critical
+                      ? attack.damage.diceAmount * 2 + crit
+                      : attack.damage.diceAmount,
+                    Math.floor((stats[attack.stat] - 10) / 2)
+                  )
                 )
-              )
-            }
-          >
-            roll damage
-          </button>
-          &nbsp;
-          <button onClick={() => dispatch(removeAttack(attack.name))}>X</button>
-          <br />
-        </span>
-      ))}
+              }
+            >
+              damage
+            </button>
+            &nbsp;
+            <button onClick={() => dispatch(removeAttack(attack.name))}>
+              X
+            </button>
+          </div>
+        ))}
+      </div>
       <NewAttack />
       <br />
-      {result.total > 0 && `Here's your result: ${result.total}!`}
+      <div style={{ maxHeight: "2em" }}>
+        &nbsp; {result.total > 0 && `Total: ${result.total}! `}
+        {result.critical && "Critical hit! "}
+        {result.rolls.length > 1 &&
+          `Individual rolls: ${result.rolls.join(", ")}`}
+      </div>
       <br />
-      {result.critical && "Critical hit!"}
-      <br />
-      {result.rolls.length > 1 &&
-        `Here are your individual rolls: ${result.rolls}.`}
+      <RollOne />
     </div>
   );
 };

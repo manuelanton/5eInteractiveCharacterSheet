@@ -4,7 +4,7 @@ export const MainGrid = styled.div`
   display: grid;
   margin: 0px;
   height: 100vh;
-  max-heigth: 100vh;
+  max-height: 100vh;
   width: 100vw;
   grid-template-rows: 25% 1fr;
   grid-template-columns: 20% 1fr;

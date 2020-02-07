@@ -32,7 +32,6 @@ const App = () => {
           }}
         >
           <Attacks />
-          <RollOne />
         </div>
       </MainGrid>
     </Provider>

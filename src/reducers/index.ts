@@ -207,7 +207,6 @@ export function rootReducer(
       };
     }
     case PERSIST_STORE: {
-      console.log(action.payload);
       return { ...action.payload };
     }
     default:

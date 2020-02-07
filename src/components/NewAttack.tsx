@@ -73,12 +73,16 @@ const NewAttack = () => {
             {damageOption}
           </option>
         ))}
-      </select>{" "}
+      </select>
       &nbsp;
       <button
         type="submit"
         onClick={() =>
-          dispatch(addAttack(newAttackName, newStat, sides, amount, damageType))
+          newAttackName !== ""
+            ? dispatch(
+                addAttack(newAttackName, newStat, sides, amount, damageType)
+              )
+            : alert("Please fill out all fields before submitting.")
         }
       >
         add new attack

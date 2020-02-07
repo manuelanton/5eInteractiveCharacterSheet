@@ -53,7 +53,7 @@ const CharacterDetail = () => {
 
   return (
     <div style={{ margin: "1em" }}>
-      <h2>Character Details</h2>
+      <h2>Character Details </h2>
       Name: &nbsp;
       <input
         type="text"
