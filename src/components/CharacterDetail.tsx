@@ -96,13 +96,13 @@ const CharacterDetail = () => {
         }}
       />
       &nbsp; Prof. Bonus: {profBonus}
-      &nbsp; HP(max):{" "}
+      &nbsp; HP(max):
       <input
         type="number"
         value={hp.max}
         onChange={e => dispatch(changeHPMax(e.currentTarget.valueAsNumber))}
       />
-      HP(current):
+      &nbsp; HP(current):
       <input
         type="number"
         value={hp.current}
