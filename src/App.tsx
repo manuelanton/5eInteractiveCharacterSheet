@@ -1,5 +1,4 @@
 import React from "react";
-import RollOne from "./components/RollOne";
 import { MainGrid } from "./components/styles/MainGrid";
 import Stats from "./components/Stats";
 import { Provider } from "react-redux";
