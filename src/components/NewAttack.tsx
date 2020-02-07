@@ -78,7 +78,7 @@ const NewAttack = () => {
       <button
         type="submit"
         onClick={() =>
-          newAttackName !== ""
+          newAttackName !== "" && newStat !== "" && damageType !== ""
             ? dispatch(
                 addAttack(newAttackName, newStat, sides, amount, damageType)
               )
