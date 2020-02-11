@@ -69,6 +69,7 @@ const RollOne = () => {
       How many are we rolling? &nbsp;
       <input
         type="number"
+        style={{ width: "7em", textAlign: "center" }}
         value={amount}
         onChange={e => setAmount(e.currentTarget.valueAsNumber)}
       />
@@ -76,6 +77,7 @@ const RollOne = () => {
       Are there any bonuses to the roll? &nbsp;
       <input
         type="number"
+        style={{ width: "7em", textAlign: "center" }}
         value={bonus}
         onChange={e => setBonus(e.currentTarget.valueAsNumber)}
       />

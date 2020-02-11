@@ -66,18 +66,21 @@ const CharacterDetail = () => {
         Name: &nbsp;
         <input
           type="text"
+          style={{ textAlign: "center", width: "10em" }}
           value={name}
           onChange={e => dispatch(changeName(e.currentTarget.value))}
         />
         &nbsp; Background: &nbsp;
         <input
           type="text"
+          style={{ textAlign: "center", width: "10em" }}
           value={background}
           onChange={e => dispatch(changeBackground(e.currentTarget.value))}
         />
         &nbsp; Race: &nbsp;
         <input
           type="text"
+          style={{ textAlign: "center", width: "10em" }}
           value={race}
           onChange={e => dispatch(changeRace(e.currentTarget.value))}
         />
@@ -95,26 +98,29 @@ const CharacterDetail = () => {
             </option>
           ))}
         </select>
-      </div>
-      <div>
         Level: &nbsp;
         <input
           type="number"
+          style={{ width: "7em", textAlign: "center" }}
           value={level}
           onChange={e => {
             dispatch(changeLevel(e.currentTarget.valueAsNumber));
           }}
         />
-        &nbsp; Prof. Bonus: {profBonus}
-        &nbsp; HP(max):
+      </div>
+      <div>
+        Prof. Bonus: {profBonus}
+        &nbsp; HP(max): &nbsp;
         <input
           type="number"
+          style={{ width: "7em", textAlign: "center" }}
           value={hp.max}
           onChange={e => dispatch(changeHPMax(e.currentTarget.valueAsNumber))}
         />
         &nbsp; HP(current): &nbsp;
         <input
           type="number"
+          style={{ width: "7em", textAlign: "center" }}
           value={hp.current}
           onChange={e =>
             dispatch(changeHPCurrent(e.currentTarget.valueAsNumber))
@@ -123,11 +129,11 @@ const CharacterDetail = () => {
         &nbsp; AC: &nbsp;
         <input
           type="number"
+          style={{ width: "7em", textAlign: "center" }}
           value={AC}
           onChange={e => dispatch(changeAC(e.currentTarget.valueAsNumber))}
-        />
-      </div>
-      <div>
+        />{" "}
+        &nbsp;
         {DC !== null &&
           `Spell Save DC: ${DC} Spell Attack Bonus: ${spellBonus}`}
       </div>
