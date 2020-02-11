@@ -95,7 +95,7 @@ const Attacks = () => {
       <NewAttack />
       <br />
       <div style={{ maxHeight: "2em" }}>
-        &nbsp; {result.total > 0 && `Total: ${result.total}! `}
+        {result.total > 0 && `Total: ${result.total}!`}
         {result.critical && "Critical hit! "}
         {result.rolls.length > 1 &&
           `Individual rolls: ${result.rolls.join(", ")}`}
