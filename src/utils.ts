@@ -23,11 +23,11 @@ export function diceRoller(sides = 20, amount = 1, bonus = 0) {
 }
 
 export function enumIntoArray(enumObject: any) {
-  var all = [];
+  var returnArray = [];
   for (var key in enumObject) {
-    all.push(enumObject[key]);
+    returnArray.push(enumObject[key]);
   }
-  return all.slice(0, all.length / 2);
+  return returnArray.slice(0, returnArray.length / 2);
 }
 
 export function calculateMod(statValue: number) {
