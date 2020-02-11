@@ -98,7 +98,7 @@ const CharacterDetail = () => {
             </option>
           ))}
         </select>
-        Level: &nbsp;
+        &nbsp;Level: &nbsp;
         <input
           type="number"
           style={{ width: "7em", textAlign: "center" }}
