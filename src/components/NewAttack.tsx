@@ -75,7 +75,7 @@ const NewAttack = () => {
           </option>
         ))}
       </select>
-      &nbsp; +MOD to dmg? &nbsp;
+      &nbsp; +{newStat} to dmg? &nbsp;
       <input
         type="checkbox"
         name="damageMod"
