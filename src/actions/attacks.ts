@@ -5,7 +5,8 @@ export const addAttack = (
   stat: string,
   damageDie: number,
   dieAmount: number,
-  damageType: string
+  damageType: string,
+  damageMod: boolean
 ) => ({
   type: ADD_ATTACK,
   payload: {
@@ -14,7 +15,8 @@ export const addAttack = (
     damage: {
       diceSides: damageDie,
       diceAmount: dieAmount,
-      damageType
+      damageType,
+      damageMod
     }
   }
 });

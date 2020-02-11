@@ -77,7 +77,8 @@ const Attacks = () => {
                     result.critical
                       ? attack.damage.diceAmount * 2 + crit
                       : attack.damage.diceAmount,
-                    Math.floor((stats[attack.stat] - 10) / 2)
+                    attack.damage.damageMod &&
+                      Math.floor((stats[attack.stat] - 10) / 2)
                   )
                 )
               }

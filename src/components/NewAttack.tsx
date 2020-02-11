@@ -13,6 +13,7 @@ const NewAttack = () => {
   const [amount, setAmount] = useState<number>(1);
   const [damageType, setDamageType] = useState<string>("");
   const [newStat, setNewStat] = useState<string>("");
+  const [damageMod, setDamageMod] = useState<boolean>(false);
   return (
     <div>
       <br />
@@ -59,7 +60,7 @@ const NewAttack = () => {
               {die}
             </option>
           ))}
-      </select>{" "}
+      </select>
       &nbsp;
       <select
         defaultValue=""
@@ -74,13 +75,26 @@ const NewAttack = () => {
           </option>
         ))}
       </select>
+      &nbsp; +MOD to dmg? &nbsp;
+      <input
+        type="checkbox"
+        name="damageMod"
+        onChange={() => setDamageMod(!damageMod)}
+      />
       &nbsp;
       <button
         type="submit"
         onClick={() =>
           newAttackName !== "" && newStat !== "" && damageType !== ""
             ? dispatch(
-                addAttack(newAttackName, newStat, sides, amount, damageType)
+                addAttack(
+                  newAttackName,
+                  newStat,
+                  sides,
+                  amount,
+                  damageType,
+                  damageMod
+                )
               )
             : alert("Please fill out all fields before submitting.")
         }

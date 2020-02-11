@@ -57,7 +57,8 @@ const CharacterDetail = () => {
         margin: "1em",
         display: "flex",
         flexDirection: "column",
-        alignContent: "space-between"
+        alignContent: "space-between",
+        height: "150px"
       }}
     >
       <h2>Character Details </h2>

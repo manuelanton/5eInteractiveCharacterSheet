@@ -30,7 +30,7 @@ const App = () => {
             maxHeight: "100%",
             display: "flex",
             justifyContent: "space-between",
-            marginTop: "4em"
+            marginTop: "3em"
           }}
         >
           <Attacks />

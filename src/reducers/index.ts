@@ -76,6 +76,7 @@ export interface RootState {
         diceSides: number;
         diceAmount: number;
         damageType: damageTypes;
+        damageMod: boolean;
       };
     }
   ];
@@ -109,7 +110,8 @@ export const initialState: RootState = {
       damage: {
         diceSides: 4,
         diceAmount: 1,
-        damageType: damageTypes.Piercing
+        damageType: damageTypes.Piercing,
+        damageMod: true
       }
     }
   ]
