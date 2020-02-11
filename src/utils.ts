@@ -29,3 +29,7 @@ export function enumIntoArray(enumObject: any) {
   }
   return all.slice(0, all.length / 2);
 }
+
+export function calculateMod(statValue: number) {
+  return Math.floor((statValue - 10) / 2);
+}

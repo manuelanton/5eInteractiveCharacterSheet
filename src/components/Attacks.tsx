@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { diceRoller } from "../utils";
+import { diceRoller, calculateMod } from "../utils";
 import { removeAttack } from "../actions/attacks";
 import NewAttack from "./NewAttack";
 import RollOne from "./RollOne";
@@ -61,7 +61,7 @@ const Attacks = () => {
                   diceRoller(
                     20,
                     1,
-                    Math.floor((stats[attack.stat] - 10) / 2) + profBonus
+                    calculateMod(stats[attack.stat]) + profBonus
                   )
                 )
               }
@@ -77,8 +77,7 @@ const Attacks = () => {
                     result.critical
                       ? attack.damage.diceAmount * 2 + crit
                       : attack.damage.diceAmount,
-                    attack.damage.damageMod &&
-                      Math.floor((stats[attack.stat] - 10) / 2)
+                    attack.damage.damageMod && calculateMod(stats[attack.stat])
                   )
                 )
               }
@@ -96,9 +95,9 @@ const Attacks = () => {
       <br />
       <div style={{ maxHeight: "2em" }}>
         {result.total > 0 && `Total: ${result.total}!`}
-        {result.critical && "Critical hit! "}
+        {result.critical && " Critical hit!"}
         {result.rolls.length > 1 &&
-          `Individual rolls: ${result.rolls.join(", ")}`}
+          ` Individual rolls: ${result.rolls.join(", ")}`}
       </div>
       <br />
       <RollOne />

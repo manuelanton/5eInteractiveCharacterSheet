@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StatCard, H5 } from "../components/styles/StatCard";
 import { createStatChange, addSave, removeSave } from "../actions/stats";
-import { diceRoller } from "../utils";
+import { diceRoller, calculateMod } from "../utils";
 
 const SingleStat = (props: { name: string; stat: string }) => {
   const prof: any = useSelector<any>(state => state.saves);
@@ -17,8 +17,8 @@ const SingleStat = (props: { name: string; stat: string }) => {
   };
 
   const saveBonus: number = prof.includes(props.stat)
-    ? Math.floor((statValue - 10) / 2) + profBonus
-    : Math.floor((statValue - 10) / 2);
+    ? calculateMod(statValue) + profBonus
+    : calculateMod(statValue);
 
   return (
     <StatCard>
@@ -31,7 +31,7 @@ const SingleStat = (props: { name: string; stat: string }) => {
         {props.name.toUpperCase()}
       </H5>
       <span>
-        {props.stat}: {Math.floor((statValue - 10) / 2)}
+        {props.stat}: {calculateMod(statValue)}
       </span>
 
       <input

@@ -11,7 +11,7 @@ import {
   changeHPCurrent
 } from "../actions/details";
 import { classes } from "../reducers/index";
-import { enumIntoArray } from "../utils";
+import { enumIntoArray, calculateMod } from "../utils";
 
 const CharacterDetail = () => {
   const stats: any = useSelector<any>(state => state.stats);
@@ -30,18 +30,18 @@ const CharacterDetail = () => {
     switch (characterClass) {
       case "Artificer":
       case "Wizard": {
-        return 8 + Math.floor((stats.INT - 10) / 2) + profBonus;
+        return 8 + calculateMod(stats.INT) + profBonus;
       }
       case "Bard":
       case "Paladin":
       case "Sorcerer":
       case "Warlock": {
-        return 8 + Math.floor((stats.CHA - 10) / 2) + profBonus;
+        return 8 + calculateMod(stats.CHA) + profBonus;
       }
       case "Cleric":
       case "Druid":
       case "Ranger": {
-        return 8 + Math.floor((stats.WIS - 10) / 2) + profBonus;
+        return 8 + calculateMod(stats.WIS) + profBonus;
       }
       default:
         return null;
