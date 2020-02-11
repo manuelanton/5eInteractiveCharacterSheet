@@ -37,7 +37,9 @@ const Attacks = () => {
   const crit: any = critCalculator();
 
   return (
-    <div style={{ marginLeft: "1em" }}>
+    <div
+      style={{ marginLeft: "1em", display: "flex", flexDirection: "column" }}
+    >
       <h4>Attacks</h4>
       <div
         style={{

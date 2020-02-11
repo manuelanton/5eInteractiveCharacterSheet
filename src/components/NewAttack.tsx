@@ -14,7 +14,7 @@ const NewAttack = () => {
   const [damageType, setDamageType] = useState<string>("");
   const [newStat, setNewStat] = useState<string>("");
   return (
-    <>
+    <div>
       <br />
       <input
         type="text"
@@ -88,7 +88,7 @@ const NewAttack = () => {
         add new attack
       </button>
       <br />
-    </>
+    </div>
   );
 };
 

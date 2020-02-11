@@ -27,7 +27,10 @@ const App = () => {
         <div
           style={{
             gridArea: "attacks",
-            maxHeight: "100%"
+            maxHeight: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: "4em"
           }}
         >
           <Attacks />

@@ -52,71 +52,84 @@ const CharacterDetail = () => {
   const spellBonus = DC - 8;
 
   return (
-    <div style={{ margin: "1em" }}>
+    <div
+      style={{
+        margin: "1em",
+        display: "flex",
+        flexDirection: "column",
+        alignContent: "space-between"
+      }}
+    >
       <h2>Character Details </h2>
-      Name: &nbsp;
-      <input
-        type="text"
-        value={name}
-        onChange={e => dispatch(changeName(e.currentTarget.value))}
-      />
-      &nbsp; Background: &nbsp;
-      <input
-        type="text"
-        value={background}
-        onChange={e => dispatch(changeBackground(e.currentTarget.value))}
-      />
-      &nbsp; Race: &nbsp;
-      <input
-        type="text"
-        value={race}
-        onChange={e => dispatch(changeRace(e.currentTarget.value))}
-      />
-      <br />
-      Class: &nbsp;
-      <select
-        value={characterClass}
-        onChange={e => dispatch(changeClass(e.target.value))}
-      >
-        <option value={""} disabled>
-          choose one
-        </option>
-        {classesArray.map(classOption => (
-          <option value={classOption} key={classOption}>
-            {classOption}
+      <div>
+        Name: &nbsp;
+        <input
+          type="text"
+          value={name}
+          onChange={e => dispatch(changeName(e.currentTarget.value))}
+        />
+        &nbsp; Background: &nbsp;
+        <input
+          type="text"
+          value={background}
+          onChange={e => dispatch(changeBackground(e.currentTarget.value))}
+        />
+        &nbsp; Race: &nbsp;
+        <input
+          type="text"
+          value={race}
+          onChange={e => dispatch(changeRace(e.currentTarget.value))}
+        />
+        &nbsp; Class: &nbsp;
+        <select
+          value={characterClass}
+          onChange={e => dispatch(changeClass(e.target.value))}
+        >
+          <option value={""} disabled>
+            choose one
           </option>
-        ))}
-      </select>
-      &nbsp; Level: &nbsp;
-      <input
-        type="number"
-        value={level}
-        onChange={e => {
-          dispatch(changeLevel(e.currentTarget.valueAsNumber));
-        }}
-      />
-      &nbsp; Prof. Bonus: {profBonus}
-      &nbsp; HP(max):
-      <input
-        type="number"
-        value={hp.max}
-        onChange={e => dispatch(changeHPMax(e.currentTarget.valueAsNumber))}
-      />
-      &nbsp; HP(current):
-      <input
-        type="number"
-        value={hp.current}
-        onChange={e => dispatch(changeHPCurrent(e.currentTarget.valueAsNumber))}
-      />
-      <br />
-      AC: &nbsp;
-      <input
-        type="number"
-        value={AC}
-        onChange={e => dispatch(changeAC(e.currentTarget.valueAsNumber))}
-      />
-      &nbsp;
-      {DC !== null && `Spell Save DC: ${DC} Spell Attack Bonus: ${spellBonus}`}
+          {classesArray.map(classOption => (
+            <option value={classOption} key={classOption}>
+              {classOption}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        Level: &nbsp;
+        <input
+          type="number"
+          value={level}
+          onChange={e => {
+            dispatch(changeLevel(e.currentTarget.valueAsNumber));
+          }}
+        />
+        &nbsp; Prof. Bonus: {profBonus}
+        &nbsp; HP(max):
+        <input
+          type="number"
+          value={hp.max}
+          onChange={e => dispatch(changeHPMax(e.currentTarget.valueAsNumber))}
+        />
+        &nbsp; HP(current): &nbsp;
+        <input
+          type="number"
+          value={hp.current}
+          onChange={e =>
+            dispatch(changeHPCurrent(e.currentTarget.valueAsNumber))
+          }
+        />
+        &nbsp; AC: &nbsp;
+        <input
+          type="number"
+          value={AC}
+          onChange={e => dispatch(changeAC(e.currentTarget.valueAsNumber))}
+        />
+      </div>
+      <div>
+        {DC !== null &&
+          `Spell Save DC: ${DC} Spell Attack Bonus: ${spellBonus}`}
+      </div>
     </div>
   );
 };

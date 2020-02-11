@@ -34,7 +34,7 @@ const RollOne = () => {
   };
 
   return (
-    <>
+    <div>
       <h4>Misc. Rolls</h4>
       How many sides do your dice have? &nbsp;
       <select
@@ -87,7 +87,7 @@ const RollOne = () => {
       &nbsp; {result.total > 0 && `${result.total}! `}
       {result.critical && "Critical hit! "}
       {result.rolls.length > 1 && `Individual rolls: ${result.rolls}`}
-    </>
+    </div>
   );
 };
 

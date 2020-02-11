@@ -12,4 +12,11 @@ export const MainGrid = styled.div`
     "stats details"
     "stats attacks";
   box-sizing: border-box;
+
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    align-items: space-between;
+  }
 `;
