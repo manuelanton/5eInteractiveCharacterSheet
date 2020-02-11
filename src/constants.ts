@@ -12,3 +12,4 @@ export const REMOVE_ATTACK = "REMOVE_ATTACK";
 export const PERSIST_STORE = "PERSIST_STORE";
 export const CHANGE_HP_MAX = "CHANGE_HP_MAX";
 export const CHANGE_HP_CURRENT = "CHANGE_HP_CURRENT";
+export const RESET_ALL = "RESET_ALL";

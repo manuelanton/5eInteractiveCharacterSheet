@@ -6,8 +6,13 @@ import {
   CHANGE_AC,
   CHANGE_HP_MAX,
   CHANGE_HP_CURRENT,
-  CHANGE_RACE
+  CHANGE_RACE,
+  RESET_ALL
 } from "../constants";
+
+export const resetAll = () => ({
+  type: RESET_ALL
+});
 
 export const changeName = (name: string) => ({
   type: CHANGE_NAME,

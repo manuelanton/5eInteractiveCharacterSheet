@@ -12,7 +12,8 @@ import {
   CHANGE_RACE,
   PERSIST_STORE,
   CHANGE_HP_MAX,
-  CHANGE_HP_CURRENT
+  CHANGE_HP_CURRENT,
+  RESET_ALL
 } from "../constants";
 
 export enum classes {
@@ -122,6 +123,9 @@ export function rootReducer(
   action: { type: string; payload: any }
 ) {
   switch (action.type) {
+    case RESET_ALL: {
+      return { ...initialState };
+    }
     case CHANGE_MOD: {
       switch (action.payload.stat) {
         case "STR": {

@@ -8,7 +8,8 @@ import {
   changeAC,
   changeRace,
   changeHPMax,
-  changeHPCurrent
+  changeHPCurrent,
+  resetAll
 } from "../actions/details";
 import { classes } from "../reducers/index";
 import { enumIntoArray, calculateMod } from "../utils";
@@ -61,7 +62,15 @@ const CharacterDetail = () => {
         height: "150px"
       }}
     >
-      <h2>Character Details </h2>
+      <div style={{ display: "flex" }}>
+        <h2>Character Details </h2> &nbsp;
+        <button
+          style={{ alignSelf: "center" }}
+          onClick={() => dispatch(resetAll())}
+        >
+          RESET
+        </button>
+      </div>
       <div>
         Name: &nbsp;
         <input

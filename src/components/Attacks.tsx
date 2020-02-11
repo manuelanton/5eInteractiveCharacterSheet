@@ -43,7 +43,6 @@ const Attacks = () => {
       <h4>Attacks</h4>
       <div
         style={{
-          maxHeight: "5em",
           overflowY: "scroll"
         }}
       >
@@ -93,7 +92,7 @@ const Attacks = () => {
       </div>
       <NewAttack />
       <br />
-      <div style={{ maxHeight: "2em" }}>
+      <div>
         {result.total > 0 && `Total: ${result.total}!`}
         {result.critical && " Critical hit!"}
         {result.rolls.length > 1 &&
