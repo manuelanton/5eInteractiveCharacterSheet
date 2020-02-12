@@ -6,12 +6,21 @@ import NewAttack from "./NewAttack";
 import RollOne from "./RollOne";
 
 const Attacks = () => {
-  const stats: any = useSelector<any>(state => state.stats);
-  const level: any = useSelector<any>(state => state.level);
-  const characterClass: any = useSelector<any>(state => state.class);
-  const characterRace: any = useSelector<any>(state => state.race);
-  const profBonus: any = useSelector<any>(state => state.profBonus);
-  const attacks: any = useSelector<any>(state => state.attacks);
+  const [
+    stats,
+    level,
+    characterClass,
+    characterRace,
+    profBonus,
+    attacks
+  ]: any = useSelector<any>(state => [
+    state.stats,
+    state.level,
+    state.class,
+    state.race,
+    state.profBonus,
+    state.attacks
+  ]);
   const dispatch = useDispatch();
 
   interface Roll {
