@@ -25,12 +25,12 @@ const Stats = () => {
 
   return (
     <>
-      <SingleStat name="Strength" stat="STR"></SingleStat>
-      <SingleStat name="Dexterity" stat="DEX"></SingleStat>
-      <SingleStat name="Constitution" stat="CON"></SingleStat>
-      <SingleStat name="Intelligence" stat="INT"></SingleStat>
-      <SingleStat name="Wisdom" stat="WIS"></SingleStat>
-      <SingleStat name="Charisma" stat="CHA"></SingleStat>
+      <SingleStat name="Strength" stat="STR" />
+      <SingleStat name="Dexterity" stat="DEX" />
+      <SingleStat name="Constitution" stat="CON" />
+      <SingleStat name="Intelligence" stat="INT" />
+      <SingleStat name="Wisdom" stat="WIS" />
+      <SingleStat name="Charisma" stat="CHA" />
     </>
   );
 };
